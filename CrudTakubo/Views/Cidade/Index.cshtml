@@ -1,0 +1,40 @@
+﻿@model List<CidadeViewModel>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div> 
+        Cidades
+    </div>
+
+    <div>
+        <table>
+            <tr>
+                <th>id</th>
+                <th>nome</th>
+                <th>ações</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Nome</td>
+                    <td><a href="Editar/@item.Id">Editar</a></td>
+                </tr>
+            }
+
+
+        </table>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+﻿@model CidadeViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Editar</title>
+</head>
+<body>
+    <div> 
+        <form action="Editar" method="post">
+            <input type="text" id="Nome" name="Nome" value="@Model.Nome" />
+            <input type="hidden" id="Id" name="Id" value="@Model.Id"/>
+
+            <button type="submit">Editar</button>
+        </form>
+    </div>
+</body>
+</html>
