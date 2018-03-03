@@ -60,17 +60,26 @@ namespace CrudTakubo.Controllers
             return RedirectToAction("Index");
         }
 
+
+        /// <summary>
+        /// Este método é a action do form da view de Editar
+        /// </summary>
+        /// <param name="model">Objeto contendo as infos do form. O tipo é CidadeViewModel, que é o tipo da view</param>
+        /// <returns>Chama o método RedirectToAction() que redireciona para uma Action. Recebe o nome da Action como parametro, no caso "Index"</returns>
         [HttpPost]
         public ActionResult Editar(CidadeViewModel model)
         {
+            //abre a conexao
             using (CrudModel connection = new CrudModel())
             {
+                //faz o select pra buscar o registro de cidade
                 cidade cid = connection.cidades.FirstOrDefault(cidade => cidade.id == model.Id);
+                //atribue o valor vindo da tela para a propriedade do objeto do banco
                 cid.nome = model.Nome;
-                
+                //salva as alterações
                 connection.SaveChanges();
             }
-
+            //retorna para a listagem
             return RedirectToAction("Index");
         }
 
